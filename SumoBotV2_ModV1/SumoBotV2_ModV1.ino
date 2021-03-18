@@ -61,6 +61,7 @@ void loop(void) {
         }
     
         if(isSharpDetecting(5)) {
+            Serial.println("Sharp triggered");
             escape(BACKWARDS);
         }
         else {
@@ -101,10 +102,12 @@ int whiteLineDetector() {
     int status = 0;
     
     if (digitalRead(CNY_LEFT) == HIGH) {
+        Serial.println("LEFT triggered");
         status = LEFT;
     }
 
     if (digitalRead(CNY_RIGHT) == HIGH) {
+        Serial.println("RIGHT triggered");
         if (status == LEFT) {
             return BOTH;
         }
